@@ -15,3 +15,14 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# pwords
+/config/database.yml
+/config/secrets.yml
+
+# temp emacs files
+*~
+
+# Env variables
+.env
+.powenv
