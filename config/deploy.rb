@@ -2,13 +2,13 @@
 lock '3.4.0'
 
 set :application, 'emis_trial'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'https://github.com/djb27/emis_trial'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/home/dave/emis_trial'
 
 # Default value for :scm is :git
 # set :scm, :git
