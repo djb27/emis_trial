@@ -22,7 +22,3 @@
 
 # temp emacs files
 *~
-
-# Env variables
-.env
-.powenv
