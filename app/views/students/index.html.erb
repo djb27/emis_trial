@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1>Student Index</h1>
+    </div>
+  </div>
+
+<br>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+       <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Surname</th>
+        </tr>
+       </thead>
+
+       <tbody>
+         <% @students.each do |student| %>
+         <tr>
+          <td><%= student.first_name %></td>
+          <td><%= student.surname %></td>
+         </tr>
+         <% end %>
+       </tbody>
+      </table>
+    </div>
+  </div>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>
+
+</div>
+  
+
+  

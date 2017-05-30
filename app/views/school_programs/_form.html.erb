@@ -1,0 +1,15 @@
+<%= simple_form_for(@school_program) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :year %>
+    <%= f.collection_select :school_id, School.all, :id, :name, {prompt: "Choose a school"} %>
+    <%= f.collection_select :program_id, Program.all, :id, :program_name, {prompt: "Choose a program"}%>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

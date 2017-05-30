@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :schools
   resources :teachers
   resources :students
-
+  resources :programs
+  resources :school_programs
+  
   # high voltage for static pages
   # root set in /initializers/high_voltage.rb
   

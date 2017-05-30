@@ -10,13 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429093455) do
+ActiveRecord::Schema.define(version: 20170508064827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "enrolments", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "school_program_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["school_program_id"], name: "index_enrolments_on_school_program_id", using: :btree
+    t.index ["student_id"], name: "index_enrolments_on_student_id", using: :btree
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "program_name"
+    t.string   "program_level"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "school_programs", force: :cascade do |t|
+    t.date     "year"
+    t.integer  "school_id"
+    t.integer  "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_school_programs_on_program_id", using: :btree
+    t.index ["school_id"], name: "index_school_programs_on_school_id", using: :btree
+  end
+
   create_table "schools", force: :cascade do |t|
-    t.string   "type"
+    t.string   "school_type"
     t.string   "name"
     t.string   "municipality"
     t.string   "admin_post"
@@ -64,4 +90,8 @@ ActiveRecord::Schema.define(version: 20170429093455) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "enrolments", "school_programs"
+  add_foreign_key "enrolments", "students"
+  add_foreign_key "school_programs", "programs"
+  add_foreign_key "school_programs", "schools"
 end

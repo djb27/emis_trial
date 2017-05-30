@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Programs Available</h2>
+      <p>Here are the programs that are available for schools to implement.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+	<thead>
+	  <tr>
+	    <th>Program Name</th>
+	    <th>Program Level</th>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  <% @programs.each do |program| %>
+	  <tr>
+	    <td><%= program.program_name %></td>
+	    <td><%= program.program_level %></td>
+            <td><%= link_to 'Show', program %></td>
+            <td><%= link_to 'Edit', edit_program_path(program) %></td>
+            <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to 'New Program', new_program_path %>
+    </div>
+  </div>
+</div>
+
+	      
+      
+    

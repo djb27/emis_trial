@@ -1,4 +1,5 @@
-<%= form_for(teacher) do |f| %>
+<%= simple_form_for(@teacher) do |f| %>
+
   <% if teacher.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
@@ -11,17 +12,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+  <div class="row">
+    <div class="col-sm-8">
+  <%= f.input :first_name %>
+  <%= f.input :surname %>
+  <%= f.input :dob %>
+  <%= f.input :gender %>
+  <%= f.input :education_level %>
+  <%= f.input :municipality %>
+  <%= f.input :admin_post %>
+  <%= f.input :village %>
+  <%= f.input :contract_end %>
+  
+  <%= f.button :submit %>
   </div>
-
-  <div class="field">
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
+
+
